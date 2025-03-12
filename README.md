@@ -20,6 +20,7 @@ Features
 
 
 <center><h1>FrontEnd Technologies</></center>
+
 React JS -> For frontend framework
 
 Axios -> For api handling
@@ -31,6 +32,7 @@ React-router -> For routing in react
 React-toastify -> For notificatio
 
 <center><h1>BackEnd Technologies</></center>
+
 Node Js -> For server
 
 Express JS -> As a Backend framework
