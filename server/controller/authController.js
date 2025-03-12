@@ -2,7 +2,7 @@ import { AuthModel } from "../model/authModel.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
-const SECRET_KEY = "My name is Shubham Tiwari.The secret key is 'nothing'.";
+const SECRET_KEY = process.env.SECRET_KEY;
 // regsiter function
 const signupAuth = async (req, res) => {
   const { username, email, password } = req.body;

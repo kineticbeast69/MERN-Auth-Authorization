@@ -2,28 +2,31 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
+import dotenv from "dotenv";
 import Routes from "./routes/authRoutes.js";
 
+dotenv.config(); // Load environment variables
 const app = express();
 
-const PORT = 3000;
-const DB_URL = "mongodb://localhost:27017/MERN-Auth_Authorization";
+const PORT = process.env.PORT || 4000;
+const DB_URL = process.env.DB_URL;
+const CLIENT_URL = process.env.CLIENT_URL;
 
-// middlewares
-app.use(cors({ origin: "http://localhost:5173", credentials: true })); //cors middleware
-app.use(express.json()); //json middleware
-app.use(cookieParser()); // cookie middleware
+// Middlewares
+app.use(cors({ origin: CLIENT_URL, credentials: true })); // Enable CORS
+app.use(express.json()); // Parse JSON requests
+app.use(cookieParser()); // Enable cookie handling
 
-// making the connection with database and starting the server
+// Database connection & server start
 mongoose
   .connect(DB_URL)
   .then(() => {
     app.listen(PORT, () => {
-      console.log(`server started at ${PORT}`);
+      console.log(`Server started at port ${PORT}`);
     });
-    console.log("database connected.");
+    console.log("Database connected successfully.");
   })
-  .catch((err) => console.log(err));
+  .catch((err) => console.log("Database connection error:", err));
 
-// route middleware is here
+// Routes
 app.use("/Api", Routes);

@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-const SECRET_KEY = "My name is Shubham Tiwari.The secret key is 'nothing'.";
+const SECRET_KEY = process.env.SECRET_KEY;
 const verifyToken = async (req, res, next) => {
   const token = req.cookies.token; //getting the toekn from cookie
   if (!token) return res.status(409).json({ message: "Unauthorized User." });
