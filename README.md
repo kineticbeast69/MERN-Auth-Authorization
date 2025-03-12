@@ -1,4 +1,4 @@
-MERN Authentication & Authorization System
+<h1>MERN Authentication & Authorization System</h1>
 
 Overview
 
@@ -18,3 +18,10 @@ Features
 
 🎨 User-friendly UI with React Router
 
+
+<center><h1>FrontEnd Technologies</></center>
+React JS -> For frontend framework
+Axios -> For api handling
+React-hook-form -> For Form handling
+React-router -> For routing in react
+React-toastify -> For notificatio
